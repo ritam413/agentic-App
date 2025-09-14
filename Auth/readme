@@ -1,0 +1,66 @@
+first prepare the env 
+->mongoURI  
+->DB_NAME
+
+prepare git-ignore
+
+install dependencies
+->  express, 
+    mongose, 
+    bcrypt, 
+    jwt, 
+    cookie-parser,
+    cors
+
+create a model for your user under 
+    -> models / user.model.js
+
+create a DB folder Keep 
+->  connectDB // handles connection to mongodb 
+
+    In the connectDB
+        -> take mongoose connection string and give it to mongoose.connect and return the connnection instance
+
+create a index / server , entry point to the app 
+    -> use a try catch 
+        -> see if the conn was succesful i.e if the connectDB return connnection instance then listen to the APP
+
+crete a express APP     
+->> use middleware like 
+    -> cookieparser , urlencoded , cors , json 
+    
+    -> write the routes of the authenticaton 
+
+create a Controller 
+    -> user.auth.controller 
+        -> login , logout , signup 
+    
+    -> signup :  
+                -> search the db with email parameter for duplicate entries 
+                if not-> 
+                        -> use bcrypt to to hash the password 
+                        -> then save the hashed pssword adn create the user in db 
+                        -> also return create a cookie with it and send it
+                        -> return the user and success flag and cookie 
+                if
+                    user already exist 
+    -> login : 
+                -> use bcrypt.compare to compare and verify the input password with the passsword stored in the db , if yesh then proceddd
+                -> sets up a cookie and logs user in 
+                -> redirect to user page
+    -> logout : 
+                -> check if the user is logged in 
+                -> if looged in 
+                            -> should have cookie , 
+                                    -> remove the clear the cookie 
+    
+
+-> Mount up the controller with routes
+-> create route folder 
+-> From App 
+        -> localhost.../api/auth/ redirect to uerAuthRoutes
+
+-> userAuthRoutes are handled in Route folder 
+    -> localhost.../api/auth/signup
+    -> localhost.../api/auth/login
+    -> localhost.../api/auth/logout
