@@ -1,0 +1,3 @@
+This is a sample knowledge base.
+Our company hackathon starts every Friday at 6 PM.
+Participants must follow the internal guidelines.
