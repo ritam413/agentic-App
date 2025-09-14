@@ -1,6 +1,6 @@
 import './App.css'
 import LoginPage from './components/LoginPage.jsx'
-import SignupPage from './components/SignupPage.jsx'
+import SignupPage from './components/SignUpPage.jsx'
 import { useState } from 'react'
 import { Routes,Route,Navigate } from "react-router-dom"
 import { Toaster } from 'react-hot-toast';
